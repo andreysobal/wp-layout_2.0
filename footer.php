@@ -3,9 +3,9 @@
 				<span class="text text_white text_low">© 2014 Escape by FreebiesXpress • Made In Toronto</span>
 			</div>
 		</div>
-	</div>	
+	</div>
 
-	<script src="scripts/scripts.min.js"></script>
+	<?php wp_footer(); ?>
 
 </body>
 </html>

@@ -21,14 +21,13 @@
 	<!-- Custom Browsers Color Start -->
 	<meta name="theme-color" content="#000">
 	<!-- Custom Browsers Color End -->
+	
 
-	<link rel="stylesheet" href="css/main.min.css">
-	<link rel="stylesheet" href="css/components.min.css">
-	<script src="scripts/components.min.js"></script>
+	<?php wp_head(); ?>
 </head>
 
 <body>
-
+	
 	<div class="wrapper_main">
 		<header class="main-block main-block_short-top header">
 			<div class="wrapper">
