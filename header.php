@@ -36,21 +36,28 @@
 						<div class="logo__img"></div>
 						<div class="logo__text text text_hight text_extra text_upper text_white"><?php bloginfo( 'name' ); ?></div>
 					</a>
-					<nav class="header__nav nav">
-						<div class="nav__burger icon">
+					
+						<!-- <div class="nav__burger icon">
 							<span class="icon__item one"></span>
 							<span class="icon__item two"></span>
 							<span class="icon__item three"></span>
 							<span class="icon__item four"></span>
-						</div>
-						<div class="nav__wrapper">
-							<div class="nav__item"><a href="#home" class="nav__link text text_white text_medium">Home</a></div>
-							<div class="nav__item"><a href="#services" class="nav__link text text_white text_medium">Services</a></div>
-							<div class="nav__item"><a href="#clients" class="nav__link text text_white text_medium">Clients</a></div>
-							<div class="nav__item"><a href="#team" class="nav__link text text_white text_medium">Team</a></div>
-							<div class="nav__item"><a href="#feedback" class="nav__link text text_white text_medium">Contact</a></div>
-						</div>
-					</nav>
+						</div> -->
+						<?php wp_nav_menu(
+							array(
+								'theme_location'  => 'top',
+								'container'       => 'nav',
+								'container_class' => 'header__nav nav', 
+								'menu_class' => 'nav__wrapper',
+								'fallback_cb' => false,
+								'items_wrap' => '<div class="nav__burger icon">
+										<span class="icon__item one"></span>
+										<span class="icon__item two"></span>
+										<span class="icon__item three"></span>
+										<span class="icon__item four"></span>
+									</div><ul id="%1$s" class="%2$s">%3$s</ul>'
+							)
+						); ?>
 				</div>
 				<div class="header__text"><span class="text text_super-hight text_light text_white">Can you build the website of my dreams?</span></div>
 				<div class="header__title"><h1><span class="text text_header-1 text_white">Yup, we can do that.</span></h1></div>
