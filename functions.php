@@ -6,12 +6,11 @@ add_action( 'after_setup_theme', 'theme_register_nav_menu' );
 
 function theme_register_nav_menu() {
 	register_nav_menu( 'top', 'Header menu' );
-}
-
-add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 2 );
-function add_my_class_to_nav_menu( $classes, $item ){
-	$classes[] = 'text text_white text_medium';
-	return $classes;
+	add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 2 );
+	function add_my_class_to_nav_menu( $classes, $item ){
+		$classes[] = 'text text_white text_medium';
+		return $classes;
+	}
 }
 
 function theme_header_connections() {
