@@ -622,6 +622,8 @@ b, strong {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
     position: relative;
     right: auto;
     top: auto;
