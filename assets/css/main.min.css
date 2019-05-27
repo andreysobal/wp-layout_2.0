@@ -164,6 +164,10 @@ a:-webkit-any-link {
   color: #666;
 }
 
+::-moz-placeholder {
+  color: #666;
+}
+
 ::placeholder {
   color: #666;
 }
@@ -282,6 +286,12 @@ b, strong {
 .flex-wrapper_column {
   flex-direction: column;
 }
+.flex-wrapper_nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrapper_align-start {
+  align-items: flex-start;
+}
 .flex-wrapper_stretch {
   justify-content: space-between;
   align-items: stretch;
@@ -316,6 +326,48 @@ b, strong {
 .main-block_short-bottom {
   padding-bottom: 1rem;
 }
+aside {
+  display: none; flex-direction: column; justify-content: flex-start; align-items: flex-start; 
+  min-width: 30%;
+}
+.widget {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.widget table {width: 100%;}
+.widget form {
+    width: 100%;
+    height: auto;
+    font-size: 1.16rem;
+    margin-top: 0.7rem;
+}
+.widget form label {display: none;}
+.widget form input[type='text']{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 3em;
+    padding: 1em;
+    resize: none;
+    outline: none;
+    font-size: inherit;
+    border: 1px solid rgba(97, 94, 94, 0.35);
+    border-radius: 0.2em;
+    margin-bottom: 1.2em;
+}
+.widget form input[type='submit']{
+  width: 40%;
+  padding: 0.7rem;
+  border: 1.5px solid rgba(97, 94, 94, 0.5);
+  border-radius: 0.5rem;
+  color: #222222;
+}
+.widget ul {
+  list-style-position: inside;
+  list-style-type: circle;
+}
+.widget li {color: #777777; font-weight: 400;}
 
 .button {
   display: inline-flex;
@@ -481,6 +533,10 @@ b, strong {
   color: rgba(97, 94, 94, 0.35);
 }
 
+.textarea::-moz-placeholder {
+  color: rgba(97, 94, 94, 0.35);
+}
+
 .textarea::placeholder {
   color: rgba(97, 94, 94, 0.35);
 }
@@ -550,6 +606,7 @@ b, strong {
     max-width: 19rem;
   }
   .menu-item  {text-align: right;}
+  aside {display: flex;} 
 }
 
 /*wideview monitor*/
@@ -1138,3 +1195,4 @@ b, strong {
 /*desktop or tablets in landscape*/
 /*wideview monitor*/
 /*supperwide view monitor*/
+}
