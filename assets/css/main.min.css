@@ -326,9 +326,11 @@ b, strong {
 .main-block_short-bottom {
   padding-bottom: 1rem;
 }
+.section__content {flex-grow: 1;}
+.section__aside {flex-grow: 0.3;}
 aside {
   display: none; flex-direction: column; justify-content: flex-start; align-items: flex-start; 
-  min-width: 30%;
+  min-width: 30%; width: 30%;
 }
 .widget {
   width: 100%;
