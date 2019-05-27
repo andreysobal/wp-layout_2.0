@@ -16,7 +16,7 @@
 
 <main>
 	<section class="section main-block">
-		<div class="wrapper flex-wrapper">
+		<div class="wrapper flex-wrapper flex-wrapper_nowrap flex-wrapper_align-start">
 			<div class="section__content content">
 				<div class="section__title text text_header-2 text_separated text_capit text_black"> <?php echo $title; ?></div>
 				<div class="section__header flex-wrapper author text_separated">
@@ -34,6 +34,7 @@
 				</div>
 				<div class="section__text text text_low"><?php echo $content; ?></div>
 			</div>
+			<?php get_sidebar(); ?>
 		</div>
 	</section>
 </main>
