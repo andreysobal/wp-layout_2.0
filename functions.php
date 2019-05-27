@@ -2,10 +2,13 @@
 
 add_action( 'wp_enqueue_scripts', 'theme_header_connections' );
 add_action( 'wp_footer', 'theme_footer_connections' );
-add_action( 'after_setup_theme', 'theme_register_nav_menu' );
+add_action( 'after_setup_theme', 'theme_register_nav_menus' );
 
-function theme_register_nav_menu() {
-	register_nav_menu( 'top', 'Header menu' );
+function theme_register_nav_menus() {
+	register_nav_menus( [
+		'header_menu' => 'Header menu',
+		'page_menu' => 'Page menu'
+	]);
 	add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 2 );
 	function add_my_class_to_nav_menu( $classes, $item ){
 		$classes[] = 'text text_white text_medium';

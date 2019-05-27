@@ -37,15 +37,9 @@
 						<div class="logo__text text text_hight text_extra text_upper text_white"><?php bloginfo( 'name' ); ?></div>
 					</a>
 					
-						<!-- <div class="nav__burger icon">
-							<span class="icon__item one"></span>
-							<span class="icon__item two"></span>
-							<span class="icon__item three"></span>
-							<span class="icon__item four"></span>
-						</div> -->
 						<?php wp_nav_menu(
 							array(
-								'theme_location'  => 'top',
+								'theme_location'  => 'header_menu',
 								'container'       => 'nav',
 								'container_class' => 'header__nav nav', 
 								'menu_class' => 'nav__wrapper',

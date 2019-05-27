@@ -29,8 +29,29 @@
 <body>
 	
 	<div class="wrapper_main flex-wrapper flex-wrapper_column flex-wrapper_stretch">
-		<header class="main-block header header_wide">
+		<header class="main-block main-block_short-top header header_wide">
 			<div class="wrapper">
-				<div class="header__title"><h1><span class="text text_header-1 text_white"><?php bloginfo( 'name' ); ?></span></div>
+				<div class="header__top">
+						<a class="header__logo logo" href="<?php bloginfo( 'url' ); ?>">
+							<div class="logo__img"></div>
+							<div class="logo__text text text_hight text_extra text_upper text_white"><?php bloginfo( 'name' ); ?></div>
+						</a>
+						<?php wp_nav_menu(
+								array(
+									'theme_location'  => 'page_menu',
+									'container'       => 'nav',
+									'container_class' => 'header__nav nav', 
+									'menu_class' => 'nav__wrapper',
+									'fallback_cb' => false,
+									'items_wrap' => '<div class="nav__burger icon">
+											<span class="icon__item one"></span>
+											<span class="icon__item two"></span>
+											<span class="icon__item three"></span>
+											<span class="icon__item four"></span>
+										</div><ul id="%1$s" class="%2$s">%3$s</ul>'
+								)
+			); ?>
+				</div>
 			</div>
+			<div class="header__title"><h1><span class="text text_header-1 text_white"><?php bloginfo( 'name' ); ?></span></div>
 		</header>
