@@ -5,8 +5,7 @@
 
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
-
-	<title>Escape WP-Theme</title>
+	
 	<meta name="description" content="">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">

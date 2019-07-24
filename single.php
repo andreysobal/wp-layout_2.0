@@ -3,14 +3,19 @@
 <?php 
 	$post = get_post();
 
-	
+	the_post();
 	$author = $post->post_author;
 	$name = get_the_author_meta('display_name', $author);
-	$description = get_the_author_meta('description', $author);
+	$author_id = get_the_author_meta('ID');
+	$avatar = get_avatar_url($author_id);
+	$description = get_the_author_meta('description');
+	$description = ($description) ? ", $description" : "";
 
 	$title = $post->post_title;
 	$content = $post->post_content;
 	$excerpt = $post->post_excerpt;
+
+
 
 ?>
 
@@ -18,17 +23,12 @@
 	<section class="section main-block">
 		<div class="wrapper flex-wrapper flex-wrapper_nowrap flex-wrapper_align-start">
 			<div class="section__content content">
-				<div class="section__title text text_header-2 text_separated text_capit text_black"> <?php echo $title; ?></div>
-				<div class="section__header flex-wrapper author text_separated">
+				<div class="section__header flex-wrapper author section__text text_separated">
 					<div class="reviews__item review flex-wrapper">
-						<div class="flex-wrapper__img review__img">
-							<div class="circle rewie"></div>
-						</div>
-						<div class="flex-wrapper__content review__content">
-							<div class="blockquote">
-								<blockquote class="blockquote__text text text_hight"><span class="quotes">&#8220; </span><span><?php echo $excerpt; ?></span><span class="quotes"> &#8221;</span></blockquote>
-								<cite class="blockquote__cite text text_low"><span>- </span><span><?php echo $name; ?>, <?php echo $description; ?></span></cite>
-							</div>
+						<div class="flex-wrapper__img review__img" style="background-image: url( <?php echo $avatar ?> );"></div>
+						<div class="flex-wrapper__content">
+							<a href="<?php the_permalink(); ?>"><div class="text text_capit text_black text_super-hight"><?php the_title(); ?></div></a>
+							<cite class="blockquote__cite text text_low"><span>-&#160;<?php the_author(); echo $description; ?>&#160;/ <?php the_time('F jS, Y'); ?></span></cite>
 						</div>
 					</div>
 				</div>

@@ -86,31 +86,49 @@
 		</div>
 	</section>
 	<section class="section main-block section_grey reviews" id="clients">
-		<div class="section__title"><span class="text text_header-2 text_light text_capit text_black">Awesome <b>Clients</b></span></div>
-		<div class="section__text"><span class="text">See what nice things our clients said about us.</span></div>
+		<?php
+		$category_id = get_cat_ID( 'Clients' );
+
+		$category_link = get_category_link( $category_id );
+		?>
+		<a href="<?php echo $category_link; ?>">
+			<div class="section__title"><span class="text text_header-2 text_light text_capit text_black">Awesome <b>Clients</b></span></div>
+			<div class="section__text"><span class="text">See what nice things our clients said about us.</span></div>
+		</a>
+
 		<div class="wrapper">
+			<?php
+				$posts = get_posts( array(
+					'numberposts' => 2,
+					'orderby' => 'rand',
+					'post_type'   => 'post',
+					'suppress_filters' => true,
+				) );
+
+				foreach( $posts as $post ){
+					setup_postdata($post);
+
+					$description = get_the_author_meta('description');
+					$description = ($description) ? ", $description" : "";
+					$author_id = get_the_author_meta('ID');
+					$avatar = get_avatar_url($author_id);
+			?>
 			<div class="reviews__item review flex-wrapper">
-				<div class="flex-wrapper__img review__img">
+				<div class="flex-wrapper__img review__img" style="background-image: url( <?php echo $avatar ?> );">
 					<div class="circle rewie"></div>
 				</div>
 				<div class="flex-wrapper__content review__content">
 					<div class="blockquote">
-						<blockquote class="blockquote__text text text_hight"><span class="quotes">&#8220; </span><span>Proin iaculis purus consequat sem cure  digni ssim donec porttitora entum suscipit aenean rhoncus.</span><span class="quotes"> &#8221;</span></blockquote>
-						<cite class="blockquote__cite text text_low"><span>- </span><span>Jamie Richardson, Founder of Cocoa Media</span></cite>
+						<a href="<?php the_permalink(); ?>"><blockquote class="blockquote__text text text_hight"><span class="quotes">&#8220; </span><?php the_excerpt(); ?> <span class="quotes"> &#8221;</span></blockquote></a>
+						<cite class="blockquote__cite text text_low"><span>- </span><span> <?php the_author(); echo $description; ?>&#160;/ <?php the_time('F jS, Y'); ?> </span></cite>
 					</div>
 				</div>
 			</div>
-			<div class="reviews__item review flex-wrapper">
-				<div class="flex-wrapper__img review__img">
-					<div class="circle"></div>
-				</div>
-				<div class="flex-wrapper__content review__content">
-					<div class="blockquote">
-						<blockquote class="blockquote__text text text_hight"><span class="quotes">&#8220; </span><span>Proin iaculis purus consequat sem cure  digni ssim donec porttitora entum suscipit aenean rhoncus.</span><span class="quotes"> &#8221;</span></blockquote>
-						<cite class="blockquote__cite text text_low"><span>- </span><span>Bart Thompson, Founder of Rainel</span></cite>
-					</div>
-				</div>
-			</div>
+			<?php 
+				}//end forea
+				
+				wp_reset_postdata();
+			?>
 		</div>
 	</section>
 	<section class="partners main-block main-block_short-top main-block_short-bottom">

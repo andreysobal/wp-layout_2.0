@@ -23,10 +23,25 @@ function theme_register_nav_menus() {
 		'header_menu' => 'Header menu',
 		'page_menu' => 'Page menu'
 	]);
+	add_theme_support( 'title-tag' );
 	add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 2 );
 	function add_my_class_to_nav_menu( $classes, $item ){
 		$classes[] = 'text text_white text_medium';
 		return $classes;
+	}
+	add_filter('excerpt_more', function($more) {
+		return ' ...';
+	});
+	add_filter( 'excerpt_length', function(){
+		return 30;
+	} );
+	add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+	function my_navigation_template( $template, $class ){
+		return '
+			<nav class="navigation %1$s" role="navigation">
+			<div class="nav-links">%3$s</div>
+			</nav>    
+		';
 	}
 }
 
